@@ -1,3 +1,64 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+include('connection.php');
+if(!$conn){
+    die("Database connection failed");
+}
+
+$message = "";
+
+/* LOGIN */
+if(isset($_POST['loginBtn'])){
+
+    $UserPhone = $_POST['UserPhone'];
+    $UserPassword = $_POST['UserPassword'];
+
+    $sql = "SELECT * FROM datasheet
+            WHERE u_phone='$UserPhone'
+            AND u_password='$UserPassword'";
+
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+
+        $row = $result->fetch_assoc();
+
+        $_SESSION['archiveLogin'] = true;
+        $_SESSION['archiveUserID'] = $row['u_id'];
+        $_SESSION['archiveUserName'] = $row['u_name'];
+
+        $message = "Welcome ".$row['u_name'];
+
+    } else {
+        $message = "Account Not Found!";
+    }
+}
+
+
+/* REGISTER */
+if(isset($_POST['registerBtn'])){
+
+    $username = $_POST['UserName'];
+    $UserPhone = $_POST['UserPhone'];
+    $UserEmail = $_POST['UserEmail'];
+    $UserPassword = $_POST['UserPassword'];
+
+    $sql = "INSERT INTO datasheet
+            (u_name,u_phone,u_email,u_password)
+            VALUES
+            ('$username','$UserPhone','$UserEmail','$UserPassword')";
+
+    if($conn->query($sql) === TRUE){
+        $message = "Registration Successful!";
+    } else {
+        $message = "Error: ".$conn->error;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -350,23 +411,42 @@
     <div class="contain">
         
     <div class="wrapper">
+        <?php if(!empty($message)){ ?>
+<div style="
+position:absolute;
+top:10px;
+left:50%;
+transform:translateX(-50%);
+color:#0ef;
+font-weight:600;
+z-index:999;">
+    <?php echo $message; ?>
+</div>
+<?php } ?>
         <span class="bg-animate"></span>
         <span class="bg-animate2"></span>
 
         <div class="form-box login">
             <h2 class="animation" style="--i:0; --j:21;">Login</h2>
-            <form action="#">
+            <form method="POST">
                 <div class="input-box animation" style="--i:1; --j:22;">
-                    <input type="text" required>
-                    <label>Username</label>
-                    <i class='bx bxs-user'></i>
-                </div>
-                <div class="input-box animation" style="--i:2; --j:23;">
-                    <input type="password" required>
-                    <label>Password</label>
-                    <i class='bx bxs-lock-alt' ></i>
-                </div>
-                <button type="submit" class="btn animation" style="--i:3; --j:24;">Login</button>
+    <input type="text" name="UserPhone" required>
+    <label>Phone Number</label>
+    <i class='bx bxs-phone'></i>
+</div>
+
+<div class="input-box animation" style="--i:2; --j:23;">
+    <input type="password" name="UserPassword" required>
+    <label>Password</label>
+    <i class='bx bxs-lock-alt'></i>
+</div>
+
+<button type="submit"
+        name="loginBtn"
+        class="btn animation"
+        style="--i:3; --j:24;">
+    Login
+</button>
                 <div class="logreg-link animation" style="--i:4; --j:25;">
                     <p>Don't have an account? <a href="#" class="register-link">Sign Up</a></p>
                 </div>
@@ -380,23 +460,37 @@
 
         <div class="form-box register">
             <h2 class="animation"  style="--i:17; --j:0;">Sign Up</h2>
-            <form action="#">
-                <div class="input-box animation"  style="--i:18; --j:1;">
-                    <input type="text" required>
-                    <label>Username</label>
-                    <i class='bx bxs-user'></i>
-                </div>
-                <div class="input-box animation"  style="--i:19; --j:2;">
-                    <input type="email" required>
-                    <label>Email</label>
-                    <i class='bx bxs-envelope'></i>
-                </div>
-                <div class="input-box animation"  style="--i:20; --j:3;">
-                    <input type="password" required>
-                    <label>Password</label>
-                    <i class='bx bxs-lock-alt' ></i>
-                </div>
-                <button type="submit" class="btn animation" style="--i:21; --j:4;">Sign Up</button>
+            <form method="POST">
+                <div class="input-box animation" style="--i:18; --j:1;">
+    <input type="text" name="UserName" required>
+    <label>Username</label>
+    <i class='bx bxs-user'></i>
+</div>
+
+<div class="input-box animation" style="--i:19; --j:2;">
+    <input type="text" name="UserPhone" required>
+    <label>Phone Number</label>
+    <i class='bx bxs-phone'></i>
+</div>
+
+<div class="input-box animation" style="--i:20; --j:3;">
+    <input type="email" name="UserEmail" required>
+    <label>Email</label>
+    <i class='bx bxs-envelope'></i>
+</div>
+
+<div class="input-box animation" style="--i:21; --j:4;">
+    <input type="password" name="UserPassword" required>
+    <label>Password</label>
+    <i class='bx bxs-lock-alt'></i>
+</div>
+
+<button type="submit"
+        name="registerBtn"
+        class="btn animation"
+        style="--i:22; --j:5;">
+    Sign Up
+</button>
                 <div class="logreg-link animation" style="--i:22; --j:5;">
                     <p>Already have an account? <a href="#" class="login-link">Login</a></p>
                 </div>
