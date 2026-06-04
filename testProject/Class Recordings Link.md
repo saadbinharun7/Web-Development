@@ -20,3 +20,17 @@
 
 [2026-05-21 web development class recording](https://drive.google.com/file/d/1wcXBZ8ZhL57hXHjObi4zZVqfc_q3CLnQ/view?fbclid=IwY2xjawR9Rf1leHRuA2FlbQIxMABicmlkETFkTlRoWHY3VGN2VDVraVFmc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgwWsqB2WgDZIUynF8t4x8KcwmgGF_vdWBAsLWOHR8UXQ_ZzPpq04r5FBXeU_aem_B1SVndkb4o1qxKthmVsNUA)
 
+
+
+
+
+
+
+
+
+
+
+
+
+[আমার দেওয়া github link ব্যাবহার করে কিভাবে স্যার এর করানো সব ফাইল নামাবেন](https://drive.google.com/file/d/10mm8dLsgk88BtBdNT-qmVVZqrhU4SS8P/view?fbclid=IwY2xjawSOB89leHRuA2FlbQIxMABicmlkETF5bko0aDZYNWhGSkdLTjFsc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHp2p59_p1PGiF9989Lfa8cpF4ZZG4SmVv3umeB1Nb6xNowBy3MGV8rZ9OVEm_aem_KSgaOz1xCODr7Ff9bWXi-Q)
+
