@@ -3,7 +3,7 @@
   <main class="main">
 
     <!-- Slider Section -->
-<?php include('slider.php')?>
+<?php //include('slider.php')?>
 	<!-- /Slider Section -->
 
     <!-- Trending Category Section -->
@@ -11,7 +11,7 @@
 	<!-- /Trending Category Section -->
 
     <!-- Culture Category Section -->
-	<?php include('culture.php')?>
+	<?php //include('culture.php')?>
     <!-- /Culture Category Section -->
 
  

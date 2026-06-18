@@ -38,11 +38,35 @@
 	 ?>
 
 
-		 
+
+
 		  <form  enctype="multipart/form-data" method="post">
 		  <h1>Add Article </h1>
 <input type="text" name="PostTitle" class="form-control m-2" placeholder="Post Title" required="">
-<input type="text" name="PostCatagory" class="form-control  m-2" placeholder="Post Category" required="">
+
+<?php
+$sql = "SELECT * FROM category ";
+// Execute the SQL query
+$result = $conn->query($sql);
+
+
+//Process the result set
+if ($result->num_rows > 0) {
+	// Output data of each row
+	echo "<select name='PostCatagory' class='form-control  m-2' >";
+	while($row = $result->fetch_assoc()) {
+		
+		echo "<option value='".$row['c_id']."'  >".$row['c_name']."</option>";
+		
+	}
+	echo "</select>";
+}
+?>
+
+
+
+
+
 <textarea name="PostDiscription" rows= '5' class="form-control  m-2"></textarea>
   <input type="file" name="PostImg" class="form-control   m-2" placeholder="" >
     <input type="submit" class="btn btn-info   m-2" name="submitBtn" />             				  
