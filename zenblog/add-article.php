@@ -11,7 +11,8 @@
      <?php
 	 
 	 if(isset($_POST['submitBtn'])){
-		 $PostTitle = $_POST['PostTitle'];
+		  $PostTitle = $_POST['PostTitle'];
+		 
 		 $PostCatagory = $_POST['PostCatagory'];
 		 $PostDiscription= $_POST['PostDiscription'];
 		 $cdate = date('d-m-Y');
@@ -23,7 +24,7 @@
 
 		 
 		 
-		  $sql = "INSERT INTO `posts`( `p_title`, `p_desc`, `p_users`, `p_date`, `p_category`, `p_status`, `p_link`,`p_img`) VALUES ('$PostTitle','$PostDiscription','0','$cdate','$PostCatagory','0','','$pimg')";
+		 echo $sql = "INSERT INTO `posts`( `p_title`, `p_desc`, `p_users`, `p_date`, `p_category`, `p_status`, `p_link`,`p_img`) VALUES ('$PostTitle','$PostDiscription','0','$cdate','$PostCatagory','0','','$pimg')";
 		if ($conn->query($sql) === TRUE) {
 		  echo '<div class="alert alert-primary" role="alert">
 		  Post Succesfully!

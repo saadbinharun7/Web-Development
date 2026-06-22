@@ -50,26 +50,34 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.php" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="single-post.html">Single Post</a></li>
+
           <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="category.html">Category 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="category.html">Category 2</a></li>
-              <li><a href="category.html">Category 3</a></li>
-              <li><a href="category.html">Category 4</a></li>
+			
+			<?php
+$sql = "SELECT * FROM category ";
+// Execute the SQL query
+$result = $conn->query($sql);
+
+
+//Process the result set
+if ($result->num_rows > 0) {
+	// Output data of each row
+	
+	while($row = $result->fetch_assoc()) {
+		
+		echo "<li><a href='category.php?cid=".$row['c_id']."'>".$row['c_name']."</a></li>";
+		
+	}
+	
+}
+?>
+			
+			
+            
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+
           <li><a href="register.php">Register</a></li>
           <li><a href="add-article.php">Add Article</a></li>
         </ul>

@@ -1,10 +1,6 @@
 <?php
 include('connection.php');
-
-
 $DeleteUserId = $_GET['DeleteUserID'];
-
-
 $sql = "delete from users where u_id = '$DeleteUserId'";
 if ($conn->query($sql) === TRUE) {
   echo "Deleted successfully";
@@ -12,7 +8,6 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>

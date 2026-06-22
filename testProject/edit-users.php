@@ -1,13 +1,10 @@
 <?php
 include('connection.php');
-
 $userID =  $_GET['id'];
-
 ?>
 <?php
 echo $_SESSION['DIT'];
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,64 +15,36 @@ echo $_SESSION['DIT'];
   </head>
   <body>
 <h1> Edit User</h1>
-
 <?php
-//echo "Your User id: ".$userID;
-
-
-
-
 $sql = "SELECT * FROM users where u_id = '$userID' ";
-// Execute the SQL query
 $result = $conn->query($sql);
-
-
-//Process the result set
 if ($result->num_rows > 0) {
-	// Output data of each row
 	while($row = $result->fetch_assoc()) {
 	$getOldUserName = $row['u_name'];
 	$getOldUserPhone = $row['u_phone'];
 	}
 }
-//UPDATE `users` SET `u_phone` = '01786756787' WHERE `users`.`u_id` = 28;
-
-
-
-
 if(isset($_POST['UserPhone'])){
-$phone = $_POST['UserPhone'];
-$name = $_POST['UserName'];
-$sql = "UPDATE `users` SET `u_phone` = '$phone',`u_name`= '$name' WHERE `users`.`u_id` = $userID ";
-if ($conn->query($sql) === TRUE) {
-  echo " User Data Updated successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+	$phone = $_POST['UserPhone'];
+	$name = $_POST['UserName'];
+	$sql = "UPDATE `users` SET `u_phone` = '$phone',`u_name`= '$name' WHERE `users`.`u_id` = $userID ";
+	if ($conn->query($sql) === TRUE) {
+		echo " User Data Updated successfully";
+	} else {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
 }
-}
-
-
-
 ?>
-
 <form method="post">
 <!--<?php if(isset($_POST['UserPhone'])){ }else{?><span>Enter Your Phone</span><?php } ?>-->
-
-
 <span>Enter Your Name</span>
 <input name="UserName" value="<?php echo $getOldUserName?>" type="text" placeholder="Name"/>
 <br/>
-
-
 <span>Enter Your Phone</span>
 <input name="UserPhone" value="<?php echo $getOldUserPhone?>" type="text" placeholder="Phone"/>
-
-
 <br/>
 <input type="Submit" name="submitBtn" value="Edit" />
 </form>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>

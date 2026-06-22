@@ -1,21 +1,6 @@
 <?php
 include('connection.php');
-
-
-/*
-if ($result->num_rows > 0) {
-	// Output data of each row
-	while($row = $result->fetch_assoc()) {
-		echo $row["u_phone"];
-	}
-	
-} else {
-	
-	echo "0 results";
-}
-*/
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,9 +10,6 @@ if ($result->num_rows > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
   <body>
-
-
-
 <table class="table table-dark table-striped">
 
 <tr>
@@ -37,17 +19,10 @@ if ($result->num_rows > 0) {
 <td>Option</td>
 
 </tr>
-
-
 <?php
 $sql = "SELECT * FROM users ";
-// Execute the SQL query
 $result = $conn->query($sql);
-
-
-//Process the result set
 if ($result->num_rows > 0) {
-	// Output data of each row
 	while($row = $result->fetch_assoc()) {
 	echo "<tr>
 <td>".$row['u_id']."</td>
@@ -58,24 +33,13 @@ if ($result->num_rows > 0) {
 <a class='btn btn-success btn-sm' href='edit-users.php?id=".$row['u_id']."'>Edit</a>
 <a class='btn btn-danger btn-sm' href='delete-users.php?DeleteUserID=".$row['u_id']."'>Delete</a>
 </td>
-
 </tr>";
-	}
-	
+	}	
 } else {
-	
 	echo "0 results";
 }
 ?>
-
-
-
-
-
 </table>
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>

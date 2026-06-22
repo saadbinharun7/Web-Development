@@ -24,9 +24,9 @@ if ($result->num_rows > 0) {
 	echo '   <div class="col-lg-4">
 
               <div class="post-entry lg">
-                <a href="blog-details.html"><img src="upload/'.$row['p_img'].'" alt="" class="img-fluid"></a>
+                <a href="post-details.php?pid='.$row['p_id'].'"><img src="upload/'.$row['p_img'].'" alt="" class="img-fluid"></a>
 	<div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span> <span>'.$row['p_date'].'</span></div>
-                <h2><a href="blog-details.html"> '.$row['p_title'].' </a></h2>
+                <h2><a href="post-details.php?pid='.$row['p_id'].'"> '.$row['p_title'].' </a></h2>
                 <p class="mb-4 d-block">'.$row['p_desc'].'</p>
 
                 <div class="d-flex align-items-center author">
@@ -76,9 +76,9 @@ if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
 		
 		echo ' <div class="post-entry">
-                    <a href="blog-details.html"><img src="upload/'.$row['p_img'].'" alt="" class="img-fluid"></a>
+                    <a href="post-details.php?pid='.$row['p_id'].'"><img src="upload/'.$row['p_img'].'" alt="" class="img-fluid"></a>
                     <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">•</span> <span>'.$row['p_date'].'</span></div>
-                    <h2><a href="blog-details.html">'.$row['p_title'].'</a></h2>
+                    <h2><a href="post-details.php?pid='.$row['p_id'].'">'.$row['p_title'].'</a></h2>
                   </div>';
 }}
 
