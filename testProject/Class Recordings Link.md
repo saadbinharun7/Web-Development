@@ -32,6 +32,8 @@
 
 [2026-06-15 web development class recording](https://drive.google.com/file/d/1AH-KmKAMKMhicWnLxuonpdz-MpPjpUhe/view?usp=sharing)
 
+[2026-06-22 web development class recording](https://drive.google.com/file/d/1j8WA9weqCQKIsKFFT0P66bWinRvAG4SW/view?usp=sharing)
+
 
 
 [আমার দেওয়া github link ব্যাবহার করে কিভাবে স্যার এর করানো সব ফাইল নামাবেন](https://drive.google.com/file/d/10mm8dLsgk88BtBdNT-qmVVZqrhU4SS8P/view?fbclid=IwY2xjawSOB89leHRuA2FlbQIxMABicmlkETF5bko0aDZYNWhGSkdLTjFsc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHp2p59_p1PGiF9989Lfa8cpF4ZZG4SmVv3umeB1Nb6xNowBy3MGV8rZ9OVEm_aem_KSgaOz1xCODr7Ff9bWXi-Q)
