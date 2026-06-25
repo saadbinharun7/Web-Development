@@ -12,66 +12,67 @@
 
         <div class="mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
 
-		  <iframe style="border:0; width: 100%; height: 270px;"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19448.353986537146!2d90.37838888213211!3d23.74642470929422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf97bcd1e88d%3A0xc83cd5c97da4b55d!2sDigital%20IT%20Institute!5e0!3m2!1sen!2sbd!4v1780579257650!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	
 		  
 		  
         </div><!-- End Google Maps -->
 
-        <div class="row gy-4">
+        <div class="row gy-">
 
-          <div class="col-lg-4">
-            <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>info@example.com</p>
-              </div>
-            </div><!-- End Info Item -->
+          <div class="col-lg-6">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSponAI5OXt21FXoCQNJiSRoBsQyUJ9AbuaNNdlUPmk2LDXyaNjOEFh_8sv&s=10" />
 
           </div>
 
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-6">
+            <form action="" method="post" class="php-email-form aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
+				<h2>Insert Your Information</h2>
+				
+				<?php
+				if(isset($_POST['LoginSubmit'])){
+					 $phone = $_POST['phone'];
+					 $Password = $_POST['Password'];
+					
+					
+				 $sql = "SELECT * FROM users where u_phone ='$phone' AND u_password= '$Password' ";
+				
+				
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+	// Output data of each row
+	while($row = $result->fetch_assoc()) {
+echo 'Welcome '.$row['u_name'];  echo'<br>';
+$_SESSION['ZenLogIN'] = true;
+$_SESSION['ZenUserID'] = $row['u_id'];
+$_SESSION['ZenUserName'] = $row['u_name'];
+}
+}else {
+	echo 'Account Not Found!';
+}	
+					
+					
+				}
+				?>
+				
+				
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                  <input type="text" name="phone" class="form-control" placeholder="Your phone" required="">
                 </div>
 
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                <div class="col-md-12 ">
+                  <input type="Password" class="form-control" name="Password" placeholder="Password" required="">
                 </div>
 
-                <div class="col-md-12 text-center">
+               
+
+                <div class="col-md-12 text-start">
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">Send Message</button>
+                  <button name="LoginSubmit" type="submit">Login</button>
                 </div>
 
               </div>

@@ -79,16 +79,29 @@ if ($result->num_rows > 0) {
           </li>
 
           <li><a href="register.php">Register</a></li>
+       
+		  
+		  <?php if($_SESSION['ZenLogIN'] == true) {?>
+		  <li><a href="logout.php">Logout</a></li>
+		  <?php }else {?>
+		  <li><a href="login.php">Login</a></li>
+		  <?php }?>
+		  
+		  
+		  <?php if($_SESSION['ZenLogIN'] == true) {?>
           <li><a href="add-article.php">Add Article</a></li>
+		  <?php }?>
+		  
+		  
+		  
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
       <div class="header-social-links">
-        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+	  <?php if($_SESSION['ZenLogIN'] == true) {?>
+        <a href="#" class="twitter"><?php echo $_SESSION['ZenUserName']?></a>
+		<?php }?>
       </div>
 
     </div>

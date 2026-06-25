@@ -16,7 +16,7 @@
 		 $PostCatagory = $_POST['PostCatagory'];
 		 $PostDiscription= $_POST['PostDiscription'];
 		 $cdate = date('d-m-Y');
-		 
+		 $Puser = $_SESSION['ZenUserID'];
 		 $pimg = ''.rand(00000,99999).'.png';
 		 
 		 
@@ -24,7 +24,7 @@
 
 		 
 		 
-		 echo $sql = "INSERT INTO `posts`( `p_title`, `p_desc`, `p_users`, `p_date`, `p_category`, `p_status`, `p_link`,`p_img`) VALUES ('$PostTitle','$PostDiscription','0','$cdate','$PostCatagory','0','','$pimg')";
+		 $sql = "INSERT INTO `posts`( `p_title`, `p_desc`, `p_users`, `p_date`, `p_category`, `p_status`, `p_link`,`p_img`) VALUES ('$PostTitle','$PostDiscription','$Puser','$cdate','$PostCatagory','0','','$pimg')";
 		if ($conn->query($sql) === TRUE) {
 		  echo '<div class="alert alert-primary" role="alert">
 		  Post Succesfully!
@@ -46,6 +46,8 @@
 <input type="text" name="PostTitle" class="form-control m-2" placeholder="Post Title" required="">
 
 <?php
+//echo $_SESSION['ZenUserName'];
+
 $sql = "SELECT * FROM category ";
 // Execute the SQL query
 $result = $conn->query($sql);
