@@ -26,7 +26,7 @@
 
 [2026-06-04 web development class recording](https://drive.google.com/file/d/1_Yk-QmmJaa8pAv4IzDWCwIge5jLu8jtu/view?usp=sharing)
 
-2026-06-08 classrecording missing
+2026-06-08 class recording missing
 
 [2026-06-11 web development class recording](https://drive.google.com/file/d/1mPU52tfDaeCApLUrKHzG2oC8eAfBfWIT/view?usp=sharing)
 
@@ -37,6 +37,10 @@
 [2026-06-25 web development class recording](https://drive.google.com/file/d/1hXdSBO0NvmL49-h4aELOvSsuIVSHRUoo/view?usp=sharing)
 
 [2026-06-29 web development class recording](https://drive.google.com/file/d/1vdHFdgd2p3j_8EkoKjm1L2jbX4yxWcBH/view?usp=sharing)
+
+
+
+[2026-07-06 web development class recording (I Absent)](https://www.youtube.com/watch?fbclid=IwY2xjawS6pJlleHRuA2FlbQIxMABicmlkETFXa204VU54OFI4bHdTTjFLc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHmPvk08Eq0qfDnp8GOiP8xi_doapCJfjIL4F5Z-a3Z2NyohKV6vZ1OAtnN5F_aem_2P4aPavQY-VFB2fiBld1WQ&v=pUbBt929n8U&feature=youtu.be)
 
 
 
